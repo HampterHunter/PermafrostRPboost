@@ -43,3 +43,26 @@ async def on_message(message):
             print(f"Successfully sent boost embed to {target_channel.name}")
         else:
             print("ERROR: Could not find the target channel. Check the ID and bot permissions.")
+
+# --- THE FAKE TEST COMMAND ---
+    if message.content == '!testboost':
+        print("Test command triggered!")
+        embed = discord.Embed(
+            title="🚀 Server Boosted!",
+            description=f"Massive thanks to {message.author.mention} for boosting the server! 🎉\n\nEnjoy the shiny pink badge and new perks.",
+            color=0xf47fff 
+        )
+        embed.set_thumbnail(url=message.author.display_avatar.url)
+        
+        target_channel = client.get_channel(TARGET_CHANNEL_ID)
+        if target_channel:
+            await target_channel.send(embed=embed)
+            print(f"Test embed sent to {target_channel.name}")
+        else:
+            print("ERROR: Could not find the target channel for the test.")
+        return # Stop the rest of the code from running
+
+    # --- THE REAL BOOST CHECK (Keep your existing code below this) ---
+    boost_types = [
+        discord.MessageType.premium_guild_subscription,
+        # ... the rest of your original code ...
