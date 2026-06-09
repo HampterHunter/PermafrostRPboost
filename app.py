@@ -22,7 +22,7 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 # DROP YOUR COPIED CHANNEL ID HERE (No quotes around the numbers!)
-TARGET_CHANNEL_ID = 1511793049192108175 
+TARGET_CHANNEL_ID = 1511793049192108175
 
 @client.event
 async def on_ready():
